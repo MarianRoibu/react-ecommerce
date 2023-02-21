@@ -61,22 +61,6 @@ const FilterTitle = styled.span`
   font-weight: 200;
 `;
 
-const FilterColor = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.color};
-  margin: 0px 5px;
-  cursor: pointer;
-`;
-
-const FilterSize = styled.select`
-  margin-left: 10px;
-  padding: 5px;
-`;
-
-const FilterSizeOption = styled.option``;
-
 const AddContainer = styled.div`
   width: 50%;
   display: flex;
@@ -133,22 +117,6 @@ const Product = () => {
           </Desc>
           <Price>$ 2500</Price>
           <FilterContainer>
-            <Filter>
-              <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
-            </Filter>
-            <Filter>
-              <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-              </FilterSize>
-            </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
