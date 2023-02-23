@@ -39,30 +39,27 @@ const ProductList = () => {
   return (
     <Container>
       <Navbar />
-      <Title>Dresses</Title>
+      <Title>Exhaust systems</Title>
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
           <Select>
             <Option disabled selected>
-              Color
+              Material
             </Option>
-            <Option>White</Option>
-            <Option>Black</Option>
-            <Option>Red</Option>
-            <Option>Blue</Option>
-            <Option>Yellow</Option>
-            <Option>Green</Option>
+            <Option>Carbon Fiber</Option>
+            <Option>Titanium</Option>
           </Select>
           <Select>
             <Option disabled selected>
-              Size
+                 Type
             </Option>
-            <Option>XS</Option>
-            <Option>S</Option>
-            <Option>M</Option>
-            <Option>L</Option>
-            <Option>XL</Option>
+         
+            <Option>Cars</Option>
+            <Option>Sport Bikes</Option>
+            <Option>Naked Bikes</Option>
+            <Option>Adventure Bikes</Option>
+            <Option>Full System</Option>
           </Select>
         </Filter>
         <Filter>

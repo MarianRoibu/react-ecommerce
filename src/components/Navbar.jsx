@@ -1,9 +1,11 @@
 import { Badge } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import CartUser from '../pages/CartUser';
+import App from '../App'
 
 const Container = styled.div`
   height: 60px;
@@ -80,6 +82,51 @@ const Navbar = () => {
   const [toggle, setToggle] = React.useState(false);
 
 
+  // const CartDropdown = ({ cartItems }) => {
+  //   return (
+  //     <div className="cart-dropdown">
+  //       <div className="cart-items">
+  //         {cartItems.length ? (
+  //           cartItems.map((item) => (
+  //             <div key={item.id} className="cart-item">
+  //               <img src={item.img} alt={item.title} />
+  //               <div className="item-details">
+  //                 <span className="title">{item.title}</span>
+  //                 <span className="price">{item.price}</span>
+  //               </div>
+  //             </div>
+  //           ))
+  //         ) : (
+  //           <span className="empty-message">Your cart is empty</span>
+  //         )}
+  //       </div>
+  //       <CustomButton>GO TO CHECKOUT</CustomButton>
+  //     </div>
+  //   );
+  // };
+  
+  // const Header = ({ cartItems }) => {
+  //   return (
+  //     <div className="header">
+  //       <Link to="/" className="logo-container">
+  //         <Logo className="logo" />
+  //       </Link>
+  //       <div className="options">
+  //         <Link to="/shop" className="option">
+  //           SHOP
+  //         </Link>
+  //         <Link to="/contact" className="option">
+  //           CONTACT
+  //         </Link>
+  //         <div className="option cart-icon">
+  //           <ShoppingCartOutlined />
+  //           <span className="item-count">{cartItems.length}</span>
+  //         </div>
+  //       </div>
+  //       {hidden ? null : <CartDropdown cartItems={cartItems} />}
+  //     </div>
+  //   );
+  // };
 
 
 
@@ -97,8 +144,8 @@ const Navbar = () => {
           <Logo>LOGO.</Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+        <MenuItem>  <NavLink to="/Register">REGISTER</NavLink> </MenuItem>
+          <MenuItem><NavLink to="/Login">SIGN IN</NavLink></MenuItem>
           <CartIconLink onClick={() => setToggle(!toggle)}>
             <Badge badgeContent={4} color="primary">
               <ShoppingCartOutlined />
@@ -110,7 +157,7 @@ const Navbar = () => {
         <DropdownItem>Option 1</DropdownItem>
         <DropdownItem>Option 2</DropdownItem>
         <DropdownItem>Option 3</DropdownItem>
-        <DropdownItem>Option 4</DropdownItem>
+        <DropdownItem> <Link to="/Cart"> Checkout </Link> </DropdownItem>
       </DropdownMenu>
     </Container>
     );
@@ -133,4 +180,4 @@ const Navbar = () => {
     const DropdownItem = styled.div` 
     ursor: pointer; 
     padding: 10px; 
-    &:hover { background-color: #f2f2f2; };`
+    &:hover { background-color: #f2f2f2; };`;

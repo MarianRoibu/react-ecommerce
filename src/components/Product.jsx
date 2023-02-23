@@ -3,8 +3,11 @@ import {
     SearchOutlined,
     ShoppingCartOutlined,
   } from "@material-ui/icons";
+  import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
   import styled from "styled-components";
   import { useState } from 'react';
+  // import App from '../App'
+  import Producto from "../pages/Product";
   
   const Info = styled.div`
     opacity: 0;
@@ -77,13 +80,12 @@ import {
 // };
 
 return (
+  <Link to="/Product">
   <Container>
     <Circle />
     <Image src={item.img} />
     <Info>
-      {/* <Icon onClick={handleAddToCart}> */}
         <ShoppingCartOutlined />
-      {/* </Icon> */}
       <Icon>
         <SearchOutlined />
       </Icon>
@@ -92,6 +94,7 @@ return (
       </Icon>
     </Info>
   </Container>
+  </Link>
 );
 
   };
