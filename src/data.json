@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Libro 1",
+      "description": "Descripción del libro 1",
+      "price": 10.99
+    },
+    {
+      "id": 2,
+      "name": "Libro 2",
+      "description": "Descripción del libro 2",
+      "price": 15.99
+    },
+    {
+      "id": 3,
+      "name": "Libro 3",
+      "description": "Descripción del libro 3",
+      "price": 20.99
+    }
+  ]
+}
