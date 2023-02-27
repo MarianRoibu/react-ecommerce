@@ -1,11 +1,12 @@
 import React from 'react';
-import items from './data.json';
 import Wishlist from './pages/Wishlist';
+import items from './data.json';
 
 function App() {
   return (
-    <Wishlist items={items.items} />
+    <Wishlist items={items} />
   );
 }
 
 export default App;
+

@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import data from '../data.json';
 
-function Wishlist(props) {
-  const [items, setItems] = useState([props.items]);
+
+function Wishlist() {
+  const [items, setItems] = useState([]);
+
+  const handleDelete = (id) => {
+    const updatedItems = items.filter((item) => item.id !== id);
+
+    localStorage.setItem('wishlist', JSON.stringify(updatedItems));
+
+    setItems(updatedItems);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,7 +34,7 @@ function Wishlist(props) {
   };
 
   useEffect(() => {
-    const storedItems = JSON.parse(localStorage.getItem('wishlist')) || data.items;
+    const storedItems = JSON.parse(localStorage.getItem('wishlist')) || [];
 
     setItems(storedItems);
   }, []);
@@ -35,29 +43,31 @@ function Wishlist(props) {
     <div>
       <h2>Lista de deseos</h2>
       <ul>
-        {items.map(item => (
+        {items.map((item) => (
           <li key={item.id}>
             <h3>{item.name}</h3>
             <p>{item.description}</p>
             <p>Precio: ${item.price}</p>
+            <button>Edit</button>
+            <button onClick={() => handleDelete(item.id)}>Eliminate</button>
           </li>
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
-  <label htmlFor="name">Nombre:</label>
-  <input type="text" id="name" name="name" required />
+        <label htmlFor="name">Nombre:</label>
+        <input type="text" id="name" name="name" required />
 
-  <label htmlFor="description">Descripción:</label>
-  <textarea id="description" name="description" required />
+        <label htmlFor="description">Descripción:</label>
+        <textarea id="description" name="description" required />
 
-  <label htmlFor="price">Precio:</label>
-  <input type="number" id="price" name="price" step="0.01" required />
+        <label htmlFor="price">Precio:</label>
+        <input type="number" id="price" name="price" step="0.01" required />
 
-  <button type="submit">Agregar a la lista de deseos</button>
-</form>
-
+        <button type="submit">Agregar a la lista de deseos</button>
+      </form>
     </div>
   );
 }
 
 export default Wishlist;
+
