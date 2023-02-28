@@ -6,6 +6,10 @@ function Wishlist() {
   const [showCompleted, setShowCompleted] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState('');
   const [priceFilter, setPriceFilter] = useState('');
+  const [editingItemId, setEditingItemId] = useState(null);
+  const [editName, setEditName] = useState("");
+  const [editDescription, setEditDescription] = useState("");
+  const [editPrice, setEditPrice] = useState("");
 
   const handleDelete = (id) => {
     const updatedItems = items.filter((item) => item.id !== id);
@@ -76,6 +80,34 @@ function Wishlist() {
   const handlePriceFilterChange = (event) => {
     setPriceFilter(event.target.value);
   };
+  const handleEditFieldChange = (id, field, value) => {
+    if (field === "name") {
+      setEditName(value);
+    } else if (field === "description") {
+      setEditDescription(value);
+    } else if (field === "price") {
+      setEditPrice(value);
+    }
+  };
+
+
+  const handleEditItem = (id, name, description, price) => {
+    const newItems = items.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          name,
+          description,
+          price: parseFloat(price)
+        };
+      }
+      return item;
+    });
+    setItems(newItems);
+    localStorage.setItem("items", JSON.stringify(newItems));
+  };
+  
+
 
   const filteredItems = items
     .filter((item) => (showCompleted ? true : item.active))
@@ -292,10 +324,60 @@ const ButtonContainer = styled.div`
           .filter((item) => (categoryFilter ? item.category === categoryFilter : true))
           .filter((item) => (priceFilter ? item.price <= priceFilter : true))
           .map((item) => (
-            <ListItem key={item.id}>
-              <ItemName>{item.name}</ItemName>
-              <ItemDescription>{item.description}</ItemDescription>
-              <ItemPrice>Precio: ${item.price}</ItemPrice>
+            <ListItem key={item.id}>{editingItemId === item.id ? (
+              <Input
+                type="text"
+                value={editName}
+                onChange={(e) => handleEditFieldChange(item.id, "name", e.target.value)}
+              />
+            ) : (
+              <h3 onDoubleClick={() => {
+                setEditingItemId(item.id);
+                setEditName(item.name);
+                setEditDescription(item.description);
+                setEditPrice(item.price);
+              }}>{item.name}</h3>
+            )}
+            
+            {editingItemId === item.id ? (
+              <TextArea
+                value={editDescription}
+                onChange={(e) =>
+                  handleEditFieldChange(item.id, "description", e.target.value)
+                }
+              />
+            ) : (
+              <p onDoubleClick={() => {
+                setEditingItemId(item.id);
+                setEditName(item.name);
+                setEditDescription(item.description);
+                setEditPrice(item.price);
+              }}>{item.description}</p>
+            )}
+            
+            {editingItemId === item.id ? (
+              <Input
+                type="number"
+                step="0.01"
+                value={editPrice}
+                onChange={(e) => handleEditFieldChange(item.id, "price", e.target.value)}
+              />
+            ) : (
+              <p onDoubleClick={() => {
+                setEditingItemId(item.id);
+                setEditName(item.name);
+                setEditDescription(item.description);
+                setEditPrice(item.price);
+              }}>${item.price}</p>
+            )}{editingItemId === item.id && (
+              <Button onClick={() => {
+                handleEditItem(editingItemId, editName, editDescription, editPrice);
+                setEditingItemId(null);
+              }}>Guardar cambios</Button>
+            )}
+
+
+            
               <ItemCheckbox
                 type="checkbox"
                 checked={!item.active}
@@ -308,6 +390,8 @@ const ButtonContainer = styled.div`
     </ListContainer>
   </Main>
   );
+
+  
   
 }
 
