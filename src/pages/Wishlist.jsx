@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Modal from 'react-modal';
+
 
 function Wishlist() {
   const [items, setItems] = useState([]);
@@ -11,6 +13,24 @@ function Wishlist() {
   const [editDescription, setEditDescription] = useState("");
   const [editPrice, setEditPrice] = useState("");
   const [sortByPrice, setSortByPrice] = useState("none");
+  const [isOpen, setIsOpen] = useState(false);
+
+
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  // const handleSave = (event) => {
+  //   event.preventDefault(); // evita el envío del formulario
+  //   handleSubmit(); // llama a la función handleSubmit
+  //   closeModal(); // llama a la función closeModal para cerrar el modal
+  // };
+
 
   const handleDelete = (id) => {
     const updatedItems = items.filter((item) => item.id !== id);
@@ -58,6 +78,7 @@ function Wishlist() {
     setItems(updatedItems);
 
     event.target.reset();
+    closeModal();
   };
 
   const showCompletedItems = () => {
@@ -153,9 +174,12 @@ function Wishlist() {
 `;
 
 const Form = styled.form`
+ position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
+  top: 20%;
+  right: 20%;
   background-color: #f2f2f2;
   border-radius: 10px;
   padding: 2rem;
@@ -285,7 +309,7 @@ padding: 1rem;
 background-color: #fff;
 border-radius: 5px;
 box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-width: 100%;
+width: 20rem;
 margin-bottom: 1rem;
 
 &:last-child {
@@ -375,26 +399,31 @@ const ButtonContainer = styled.div`
   return (
 <Main>
     <ListTitle>Lista de deseos</ListTitle>
-    <Form onSubmit={handleSubmit}>
-      <Label htmlFor="name">Nombre:</Label>
-      <Input type="text" id="name" name="name" required />
+    <Button onClick={openModal}>Agregar a la lista de deseos</Button>
 
-      <Label htmlFor="description">Descripción:</Label>
-      <TextArea id="description" name="description" required />
+    <Modal isOpen={isOpen}>
+  <Form onSubmit={handleSubmit}>
+    <Label htmlFor="name">Nombre:</Label>
+    <Input type="text" id="name" name="name" required />
 
-      <Label htmlFor="price">Precio:</Label>
-      <Input type="number" id="price" name="price" step="0.01" required />
+    <Label htmlFor="description">Descripción:</Label>
+    <TextArea id="description" name="description" required />
 
-      <Label htmlFor="category">Categoría:</Label>
-      <Select id="category" name="category" required>
-        <option value="">Selecciona una categoría</option>
-        <option value="electrónica">Electrónica</option>
-        <option value="ropa">Ropa</option>
-        <option value="hogar">Hogar</option>
-      </Select>
+    <Label htmlFor="price">Precio:</Label>
+    <Input type="number" id="price" name="price" step="0.01" required />
 
-      <Button type="submit">Agregar a la lista de deseos</Button>
-    </Form>
+    <Label htmlFor="category">Categoría:</Label>
+    <Select id="category" name="category" required>
+      <option value="">Selecciona una categoría</option>
+      <option value="electrónica">Electrónica</option>
+      <option value="ropa">Ropa</option>
+      <option value="hogar">Hogar</option>
+    </Select>
+
+    <Button  type="submit" >Agregar a la lista de deseos</Button>
+  </Form>
+</Modal>
+
 
     <Filters>
       <FiltersTitle>Filtros</FiltersTitle>
