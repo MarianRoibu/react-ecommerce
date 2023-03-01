@@ -10,6 +10,7 @@ function Wishlist() {
   const [editName, setEditName] = useState("");
   const [editDescription, setEditDescription] = useState("");
   const [editPrice, setEditPrice] = useState("");
+  const [sortByPrice, setSortByPrice] = useState("none");
 
   const handleDelete = (id) => {
     const updatedItems = items.filter((item) => item.id !== id);
@@ -73,6 +74,27 @@ function Wishlist() {
     setItems([]);
   };
 
+  const handleSortByPrice = (order) => {
+    if (order === "asc") {
+      setSortByPrice("asc");
+    } else if (order === "desc") {
+      setSortByPrice("desc");
+    } else {
+      setSortByPrice("none");
+    }
+  };
+
+  const sortedItems = [...items].sort((a, b) => {
+    if (sortByPrice === "asc") {
+      return a.price - b.price;
+    } else if (sortByPrice === "desc") {
+      return b.price - a.price;
+    } else {
+      return 0;
+    }
+  });
+
+
   const handleCategoryFilterChange = (event) => {
     setCategoryFilter(event.target.value);
   };
@@ -127,70 +149,179 @@ function Wishlist() {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
+  min-height: 100vh; 
 `;
 
-
-
 const Form = styled.form`
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  width: 50%;
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 const Label = styled.label`
-margin-bottom: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
 `;
 
 const Input = styled.input`
-margin-bottom: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 `;
 
 const TextArea = styled.textarea`
-margin-bottom: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 `;
 
 const Select = styled.select`
-margin-bottom: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 `;
 
 const Button = styled.button`
-margin-bottom: 10px;
+  margin-bottom: 10px;
+  padding: 0.5rem 1rem;
+  background-color: #1abc9c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #148f77;
+  }
+`;
+
+const ButtonEdit = styled.button`
+  margin-bottom: 10px;
+  padding: 0.5rem 1rem;
+  background-color: #fcff82;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #facf5a;
+  }
 `;
 
 const Filters = styled.div`
-margin-top: 20px;
-display: flex;
-flex-direction: column;
-align-items: center;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  width: 50%;
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 const FiltersTitle = styled.h3`
-margin-bottom: 5px;
+  margin-bottom: 1rem;
+  font-weight: bold;
 `;
 
 const FilterContainer = styled.div`
-margin-bottom: 10px;
+  margin-bottom: 1rem;
 `;
 
 const FilterLabel = styled.label`
-margin-right: 5px;
+  margin-right: 0.5rem;
 `;
 
 const CheckboxInput = styled.input`
-margin-right: 5px;
+  margin-right: 0.5rem;
 `;
 
 const ListContainer = styled.div`
-margin-top: 20px;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  width: 50%;
+
+  @media screen and (max-width: 768px) {
+width: 80%;
+}
+`;
+
+const ListTitle = styled.h2 `margin-bottom: 1rem; font-weight: bold;;`
+
+const ListItem = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+padding: 1rem;
+background-color: #fff;
+border-radius: 5px;
+box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+width: 100%;
+margin-bottom: 1rem;
+
+&:last-child {
+margin-bottom: 0;
+}
 `;
 
-const ListTitle = styled.h2`
-margin-bottom: 10px;
-`;
+const ItemTitle = styled.h3 `
+margin-bottom: 0.5rem;;`
+
+const ItemDescription = styled.p `
+margin-bottom: 0.5rem;;`
+
+const ItemDetails = styled.div `
+display: flex; 
+flex-direction: row; 
+justify-content: space-between; 
+width: 100%;;`
+
+const ItemCategory = styled.span `
+margin-right: 0.5rem; 
+font-weight: bold;;`
+
+const ItemDate = styled.span `
+font-size: 0.8rem; 
+color: #888;;`
+
+const ErrorText = styled.p `
+color: #ff0000; 
+font-weight: bold; 
+margin-top: 0.5rem;;`
+
+const LoadingText = styled.p `
+font-weight: bold; 
+margin-top: 0.5rem;;`
+
 
 const ListFilters = styled.div`
 margin-bottom: 10px;
@@ -198,30 +329,25 @@ display: flex;
 align-items: center;
 `;
 
-const ListItem = styled.li`
-margin-bottom: 10px;
-display: flex;
-flex-direction: column;
-align-items: center;
-`;
-
-const ItemName = styled.h3`
-margin-bottom: 5px;
-`;
-
-const ItemDescription = styled.p`
-margin-bottom: 5px;
-`;
-
-const ItemPrice = styled.p`
-margin-bottom: 5px;
-`;
-
 const ItemCheckbox = styled.input`
 margin-right: 5px;
 `;
 
-const ItemDeleteButton = styled.button``;
+const ItemDeleteButton = styled.button`
+      margin-right: 0.5rem;
+    padding: 0.5rem;
+    background-color: #f83e4b;
+    color: #fff;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #be3144;
+    }
+
+`;
 
 
 const ButtonContainer = styled.div`
@@ -288,7 +414,7 @@ const ButtonContainer = styled.div`
       </FilterContainer>
 
       <FilterContainer>
-        <FilterLabel htmlFor="priceFilter">Filtrar por precio:</FilterLabel>
+      <FilterLabel htmlFor="priceFilter">Filtrar por precio:</FilterLabel>
         <Input
           type="number"
           id="priceFilter"
@@ -297,8 +423,13 @@ const ButtonContainer = styled.div`
           value={priceFilter}
           onChange={(e) => setPriceFilter(parseFloat(e.target.value))}
         />
+        <Button onClick={() => handleSortByPrice("asc")}>Menor a mayor</Button>
+        <Button onClick={() =>  handleSortByPrice("desc")}>Mayor a menor</Button>
       </FilterContainer>
     </Filters>
+
+
+
 
     <ButtonContainer>
       <Button onClick={showCompletedItems}>Completados</Button>
@@ -331,7 +462,7 @@ const ButtonContainer = styled.div`
                 onChange={(e) => handleEditFieldChange(item.id, "name", e.target.value)}
               />
             ) : (
-              <h3 onDoubleClick={() => {
+              <h3 onClick={() => {
                 setEditingItemId(item.id);
                 setEditName(item.name);
                 setEditDescription(item.description);
@@ -347,7 +478,7 @@ const ButtonContainer = styled.div`
                 }
               />
             ) : (
-              <p onDoubleClick={() => {
+              <p onClick={() => {
                 setEditingItemId(item.id);
                 setEditName(item.name);
                 setEditDescription(item.description);
@@ -363,17 +494,17 @@ const ButtonContainer = styled.div`
                 onChange={(e) => handleEditFieldChange(item.id, "price", e.target.value)}
               />
             ) : (
-              <p onDoubleClick={() => {
+              <p onClick={() => {
                 setEditingItemId(item.id);
                 setEditName(item.name);
                 setEditDescription(item.description);
                 setEditPrice(item.price);
               }}>${item.price}</p>
             )}{editingItemId === item.id && (
-              <Button onClick={() => {
+              <ButtonEdit onClick={() => {
                 handleEditItem(editingItemId, editName, editDescription, editPrice);
                 setEditingItemId(null);
-              }}>Guardar cambios</Button>
+              }}>Guardar cambios</ButtonEdit>
             )}
 
 
