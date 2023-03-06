@@ -7,6 +7,7 @@ import CartUser from "./pages/Cart";
 import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 import { BrowserRouter as Router, Route, Routes,Navigate } from 'react-router-dom'
+import ProductPage from './pages/ProductPage';
 
 
 
@@ -21,7 +22,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/products" element={<ProductList/>} />
-            <Route path="/Product" element={<Product/>} />
+            <Route path="/products/:id" element={<ProductPage />} />
             <Route path="/register" element={<Register/>} />
             <Route path="/login" element={<Login/>} />
             <Route path="/Cart" element={<CartUser />} />

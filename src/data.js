@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const sliderItems = [
     {
       id: 1,
@@ -44,33 +46,41 @@ export const sliderItems = [
     {
       id:1,
       img:"https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+      link: "/products/1",
     },
     {
       id:2,
       img:"https://shop.sc-project.com/Images/Products/Zoom/sc_project_s1_mv_agusta_brutale_scproject_cr-t_full_titan_muffler_mv_brutale_sc_exhaust.jpg",
+      link: "/products/2",
     },
     {
       id:3,
       img:"https://shop.sc-project.com/Images/Products/Zoom/Yamaha_YZF-R1_my2020_CRT-Titanio_Dettaglio.jpg",
+      link: "/products/3",
     },
     {
       id:4,
       img:"https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RS660_my2022_S1-Basso_3-4Posteriore.jpg",
+      link: "/products/4",
     },
     {
       id:5,
       img:"https://shop.sc-project.com/Images/Products/Zoom/Kawasaki_Ninja-ZX-10RR_my2021_SC1R-Carbonio-Decat_3-4Posteriore.jpg",
+      link: "/products/5",
     },
     {
       id:6,
       img:"https://shop.sc-project.com/Images/Products/Zoom/KTM_1290SuperDukeR_my2020_SC1R-Carbonio_3-4Posteriore.jpg",
+      link: "/products/6",
     },
     {
       id:7,
       img:"https://shop.sc-project.com/Images/Products/Zoom/MV-Agusta_F3-800_SC1R-Omologato_Carbonio_Dettaglio.jpg",
+      link: "/products/7",
     },
     {
       id:8,
       img:"https://shop.sc-project.com/Images/Products/Zoom/Kawasaki_Ninja-1000SX_my2023_SC1R-MattBlack_3-4Posteriore.jpg",
+      link: "/products/8",
     },
-  ]
+  ];

@@ -6,7 +6,6 @@ import {
   import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
   import styled from "styled-components";
   import { useState } from 'react';
-  // import App from '../App'
   import Producto from "../pages/Product";
   
   const Info = styled.div`
@@ -71,13 +70,9 @@ import {
   `;
   
 
-  // const [cartItems, setCartItems] = useState([]);
-
   const Product = ({ item }) => {
 
-//    const handleAddToCart = () => {
-//   setCartItems([...cartItems, item]);
-// };
+;
 
 return (
   <Link to="/Product">
@@ -92,6 +87,8 @@ return (
       <Icon>
         <FavoriteBorderOutlined />
       </Icon>
+      <Link to={`/products/${item.id}`}>View Product</Link>
+
     </Info>
   </Container>
   </Link>

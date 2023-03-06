@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Container = styled.div``;
 
@@ -97,34 +99,28 @@ const Button = styled.button`
       background-color: #f8f4f4;
   }
 `;
-
 const Product = () => {
+  const [cartItems, setCartItems] = useState(0);
+  const { state: { product } } = useLocation();
+
   return (
     <Container>
-      <Navbar />
+      <Navbar cartItems={cartItems} />
       <Wrapper>
         <ImgContainer>
-          <Image src="https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/15696/91d36b89525942259cdf4fb7681bbe05.png" />
+          <Image src={product.img} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
-          <Desc>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-            iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-            tristique tortor pretium ut. Curabitur elit justo, consequat id
-            condimentum ac, volutpat ornare.
-          </Desc>
-          <Price>$ 2500</Price>
-          <FilterContainer>
-          </FilterContainer>
+          <Title>{product.title}</Title>
+          <Desc>{product.description}</Desc>
+          <Price>{product.price}</Price>
           <AddContainer>
             <AmountContainer>
               <Remove />
               <Amount>1</Amount>
               <Add />
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={() => setCartItems(cartItems + 1)}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
