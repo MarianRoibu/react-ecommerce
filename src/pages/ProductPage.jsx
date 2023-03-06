@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import {useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { popularProducts as products } from "../data";
+import { useContext } from 'react';
+import { CartContext } from "../components/CartContextProvider"; 
+
 
 const Container = styled.div`
   display: flex;
@@ -26,8 +29,8 @@ const ImageList = styled.div`
 `;
 
 const Image = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 500px;
+  height: 500px;
   object-fit: cover;
   margin-right: 10px;
   border-radius: 5px;
@@ -36,10 +39,10 @@ const Image = styled.img`
 `;
 
 const MainImage = styled.img`
-  height: 80%;
-  width: 100%;
+  height: 50%;
+  width: 60%;
   object-fit: cover;
-  margin-right: 20px;
+  margin-right: 100px;
 `;
 
 const InfoContainer = styled.div`
@@ -140,6 +143,17 @@ const Button = styled.button`
 `;
 
 const ProductPage = () => {
+    const { addToCart } = useContext(CartContext);
+
+    const handleAddToCart = () => {
+      addToCart(product);
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      cartItems.push(product);
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    };
+
+    
+
     const { id } = useParams();
     const product = products.find((p) => p.id === parseInt(id));
     const [currentImage, setCurrentImage] = useState(product.img);
@@ -152,7 +166,7 @@ const ProductPage = () => {
       <Container>
         <Wrapper>
           <ImageContainer>
-            <Image src={currentImage} />
+            <MainImage src={currentImage} />
             <ImageList>
   {product.images.map((image) => (
     <Image
@@ -175,7 +189,7 @@ const ProductPage = () => {
                 <Amount>1</Amount>
                 <Add />
               </AmountContainer>
-              <Button>ADD TO CART</Button>
+              <button onClick={handleAddToCart}>Add to Cart</button>
             </AddContainer>
           </InfoContainer>
         </Wrapper>
