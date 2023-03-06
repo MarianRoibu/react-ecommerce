@@ -25,12 +25,6 @@ function Wishlist() {
     setIsOpen(false);
   };
 
-  // const handleSave = (event) => {
-  //   event.preventDefault(); // evita el envío del formulario
-  //   handleSubmit(); // llama a la función handleSubmit
-  //   closeModal(); // llama a la función closeModal para cerrar el modal
-  // };
-
 
   const handleDelete = (id) => {
     const updatedItems = items.filter((item) => item.id !== id);
@@ -456,9 +450,6 @@ const ButtonContainer = styled.div`
         <Button onClick={() =>  handleSortByPrice("desc")}>Mayor a menor</Button>
       </FilterContainer>
     </Filters>
-
-
-
 
     <ButtonContainer>
       <Button onClick={showCompletedItems}>Completados</Button>
