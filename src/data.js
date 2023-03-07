@@ -6,7 +6,7 @@ export const sliderItems = [
       img: "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20133/d061c6ba-f530-46ab-8f4c-852a2b0d70e6.png",
       title: "NEW EXHAUST",
       desc: "GET THE MOST OUT OF YOUR CAR! GET FLAT ¡10% OFF FOR NEW ARRIVALS.",
-      bg: "linear-gradient(to left, #BDBBBE 0%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);",
+      bg: "linear-gradient(to left, #BDBBBE 0%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);"
     },
     {
       id: 2,

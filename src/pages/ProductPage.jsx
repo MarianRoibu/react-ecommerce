@@ -189,7 +189,7 @@ const ProductPage = () => {
                 <Amount>1</Amount>
                 <Add />
               </AmountContainer>
-              <button onClick={handleAddToCart}>Add to Cart</button>
+              <Button onClick={handleAddToCart}>Add to Cart</Button>
             </AddContainer>
           </InfoContainer>
         </Wrapper>

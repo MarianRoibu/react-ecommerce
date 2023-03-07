@@ -1,13 +1,15 @@
 import { Badge } from "@material-ui/core";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import CartUser from '../pages/CartUser';
-import App from '../App'
+import App from '../App';
+
 
 const Container = styled.div`
+  background-color: #393e46;
   height: 60px;
   ${mobile({ height: "50px" })}
 `;
@@ -146,38 +148,17 @@ const Navbar = () => {
         <Right>
         <MenuItem>  <NavLink to="/Register">REGISTER</NavLink> </MenuItem>
           <MenuItem><NavLink to="/Login">SIGN IN</NavLink></MenuItem>
-          <CartIconLink onClick={() => setToggle(!toggle)}>
-            <Badge badgeContent={4} color="primary">
+          <Link to="/Cart">
+              <CartIconLink onClick={() => setToggle(!toggle)}>
+            <Badge badgeContent={0} color="primary">
               <ShoppingCartOutlined />
             </Badge>
-          </CartIconLink>
+          </CartIconLink> </Link>
         </Right>
       </Wrapper>
-      <DropdownMenu toggle={toggle}>
-        <DropdownItem>Option 1</DropdownItem>
-        <DropdownItem>Option 2</DropdownItem>
-        <DropdownItem>Option 3</DropdownItem>
-        <DropdownItem> <Link to="/Cart"> Checkout </Link> </DropdownItem>
-      </DropdownMenu>
     </Container>
     );
     };
     
     export default Navbar;
     
-    const DropdownMenu = styled.div`
-     position: absolute; 
-     left: 90%;
-     top: 90px; 
-     width: 200px; 
-     z-index: 1; 
-     display: ${(props) => (props.toggle ? "block" : "none")}; 
-     background-color: gray; 
-     border-radius: 5px; 
-     overflow: hidden; 
-     ${mobile({ top: "50px", width: "150px" })};`
-    
-    const DropdownItem = styled.div` 
-    ursor: pointer; 
-    padding: 10px; 
-    &:hover { background-color: #f2f2f2; };`;

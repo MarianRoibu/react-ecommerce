@@ -8,9 +8,7 @@ ReactDOM.render(
     
     
    <CartContextProvider>
-    <React.StrictMode>
         <App />
-    </React.StrictMode>
     </CartContextProvider>,
     
  
