@@ -1,5 +1,12 @@
 import styled from "styled-components";
 import {mobile} from "../responsive";
+import React, { useState, useContext, useEffect } from "react";
+import { AuthContext } from "../components/LoginLogic";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import { connect } from 'react-redux';
+
+
 
 const Container = styled.div`
   width: 100vw;
@@ -50,6 +57,16 @@ const Button = styled.button`
   margin-bottom: 10px;
 `;
 
+const ButtonLogOut = styled.button`
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  background-color: teal;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+`;
+
 const Link = styled.a`
   margin: 5px 0px;
   font-size: 12px;
@@ -57,21 +74,50 @@ const Link = styled.a`
   cursor: pointer;
 `;
 
-const Login = () => {
+
+
+function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const history = useNavigate();
+  const users = [
+    { username: 'user1', password: 'password1' },
+    { username: 'user2', password: 'password2' },
+    { username: 'user3', password: 'password3' },
+  ];
+  
+  // Save user data to local storage
+  localStorage.setItem('users', JSON.stringify(users));
+
+  const handleLogin = () => {
+    const storedUsers = JSON.parse(localStorage.getItem('users'));
+
+    const user = storedUsers.find(u => u.username === username && u.password === password);
+
+    if (user) {
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      history('/Home');
+    } else {
+      setError('Invalid username or password');
+    }
+  };
+
   return (
-    <Container>
-      <Wrapper>
-        <Title>SIGN IN</Title>
-        <Form>
-          <Input placeholder="username" required/>
-          <Input placeholder="password" required/>
-          <Button>LOGIN</Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
-        </Form>
-      </Wrapper>
-    </Container>
+    <div>
+      <h1>Login</h1>
+      <div>
+        <label>Username:</label>
+        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+      </div>
+      <button onClick={handleLogin}>Login</button>
+      {error && <div>{error}</div>}
+    </div>
   );
-};
+}
 
 export default Login;

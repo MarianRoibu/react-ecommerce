@@ -1,11 +1,14 @@
 import { Badge } from "@material-ui/core";
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, NavLink, useNavigate } from "react-router-dom";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import CartUser from '../pages/CartUser';
-import App from '../App';
+import { AuthContext } from "./LoginLogic";
+import LoginButton from "./LoginButton";
+import { useSelector, useDispatch } from 'react-redux';
+
 
 
 const Container = styled.div`
@@ -80,57 +83,22 @@ const CartIconLink = styled.a`
   cursor: pointer;
 `;
 
-const Navbar = () => {
-  const [toggle, setToggle] = React.useState(false);
+const Button = styled.button`
+
+`
 
 
-  // const CartDropdown = ({ cartItems }) => {
-  //   return (
-  //     <div className="cart-dropdown">
-  //       <div className="cart-items">
-  //         {cartItems.length ? (
-  //           cartItems.map((item) => (
-  //             <div key={item.id} className="cart-item">
-  //               <img src={item.img} alt={item.title} />
-  //               <div className="item-details">
-  //                 <span className="title">{item.title}</span>
-  //                 <span className="price">{item.price}</span>
-  //               </div>
-  //             </div>
-  //           ))
-  //         ) : (
-  //           <span className="empty-message">Your cart is empty</span>
-  //         )}
-  //       </div>
-  //       <CustomButton>GO TO CHECKOUT</CustomButton>
-  //     </div>
-  //   );
-  // };
-  
-  // const Header = ({ cartItems }) => {
-  //   return (
-  //     <div className="header">
-  //       <Link to="/" className="logo-container">
-  //         <Logo className="logo" />
-  //       </Link>
-  //       <div className="options">
-  //         <Link to="/shop" className="option">
-  //           SHOP
-  //         </Link>
-  //         <Link to="/contact" className="option">
-  //           CONTACT
-  //         </Link>
-  //         <div className="option cart-icon">
-  //           <ShoppingCartOutlined />
-  //           <span className="item-count">{cartItems.length}</span>
-  //         </div>
-  //       </div>
-  //       {hidden ? null : <CartDropdown cartItems={cartItems} />}
-  //     </div>
-  //   );
-  // };
 
 
+
+function Navbar() {
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  const history = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('currentUser');
+    history('/Login');
+  };
 
   return (
     <Container>
@@ -146,19 +114,31 @@ const Navbar = () => {
           <Logo>LOGO.</Logo>
         </Center>
         <Right>
-        <MenuItem>  <NavLink to="/Register">REGISTER</NavLink> </MenuItem>
-          <MenuItem><NavLink to="/Login">SIGN IN</NavLink></MenuItem>
+        <MenuItem><NavLink to="/products">Products</NavLink></MenuItem>
+        <MenuItem>
+          <NavLink to="/Home">Home</NavLink>
+        </MenuItem>
+        {currentUser ? (
+          <MenuItem>
+            <button onClick={handleLogout}>Logout</button>
+          </MenuItem>
+        ) : (
+          <MenuItem>
+            <NavLink to="/login">Login</NavLink>
+          </MenuItem>
+        )}
+
           <Link to="/Cart">
-              <CartIconLink onClick={() => setToggle(!toggle)}>
-            <Badge badgeContent={0} color="primary">
-              <ShoppingCartOutlined />
-            </Badge>
-          </CartIconLink> </Link>
+            <CartIconLink >
+              <Badge badgeContent={0} color="primary">
+                <ShoppingCartOutlined />
+              </Badge>
+            </CartIconLink>
+          </Link>
         </Right>
       </Wrapper>
     </Container>
-    );
-    };
-    
-    export default Navbar;
-    
+  );
+}
+
+export default Navbar;

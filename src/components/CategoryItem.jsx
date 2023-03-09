@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
@@ -48,7 +49,7 @@ const CategoryItem = ({ item }) => {
       <Image src={item.img} />
       <Info>
         <Title>{item.title}</Title>
-        <Button>SHOP NOW</Button>
+        <Button> <NavLink to="/allProducts"> SHOP NOW </NavLink></Button>
       </Info>
     </Container>
   );
