@@ -36,8 +36,11 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ProductList = () => {
+
+
   return (
-    <Container>
+
+<Container>
       <Navbar />
       <Title>Exhaust systems</Title>
       <FilterContainer>
@@ -54,7 +57,7 @@ const ProductList = () => {
             <Option disabled selected>
                  Type
             </Option>
-         
+        
             <Option>Cars</Option>
             <Option>Sport Bikes</Option>
             <Option>Naked Bikes</Option>
@@ -75,6 +78,7 @@ const ProductList = () => {
       <Newsletter />
       <Footer />
     </Container>
+
   );
 };
 

@@ -7,6 +7,7 @@ import {
   import styled from "styled-components";
   import { useState } from 'react';
   import Producto from "../pages/Product";
+
   
   const Info = styled.div`
     opacity: 0;

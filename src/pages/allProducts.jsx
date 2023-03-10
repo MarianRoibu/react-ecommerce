@@ -4,6 +4,10 @@ import Products from "../components/SecondaryProductPage";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
+import AddProductForm from "./AddProductForm";
+import Product from "./Product";
+import { AuthContext } from "../components/LoginLogic";
+import { useContext } from "react";
 
 const Container = styled.div``;
 
@@ -35,7 +39,11 @@ const Select = styled.select`
 `;
 const Option = styled.option``;
 
-const ProductList = () => {
+const AllProducts = () => {
+  // const { loggedIn } = useContext(AuthContext);
+
+
+
   return (
     <Container>
       <Navbar />
@@ -71,6 +79,14 @@ const ProductList = () => {
           </Select>
         </Filter>
       </FilterContainer>
+      
+
+      <AddProductForm />
+
+      
+            
+
+
       <Products />
       <Newsletter />
       <Footer />
@@ -78,4 +94,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default AllProducts;

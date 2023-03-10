@@ -249,12 +249,18 @@
 
 // export default Cart;
 
-
 import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import { CartContext } from '../components/CartContextProvider'; 
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart, increaseQuantity, decreaseQuantity } = useContext(CartContext);
+
+  const calculateTotalPrice = () => {
+    return cart.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+  }
 
   return (
     <div>
@@ -274,7 +280,11 @@ const Cart = () => {
               <button onClick={() => decreaseQuantity(item.id)}>-</button>
             </div>
           ))}
-          <button onClick={clearCart}>Clear cart</button>
+          <div>
+            <p>Total: ${calculateTotalPrice()}</p>
+            <button onClick={clearCart}>Clear cart</button>
+            <button> <NavLink to="/Checkout"> Checkout  </NavLink></button>
+          </div>
         </>
       )}
     </div>

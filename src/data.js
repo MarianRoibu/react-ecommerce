@@ -29,16 +29,19 @@ export const sliderItems = [
       id: 1,
       img: "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/16280/d17104f308d24075a9287d5661d32bf5.png",
       title: "SUPER SPORT",
+      link: "/SportsBikes"
     },
     {
       id: 2,
       img: "https://www.mvagusta.com/images/main/brutale/rr/main-m.png",
       title: "NAKED BIKES",
+      link: "/NakedBikesPage"
     },
     {
       id: 3,
       img: "https://images.ctfassets.net/x7j9qwvpvr5s/3SLiv496eMF2gD6TMssazo/86c985d491efdc21418652ff6a319b1f/MY23-Streetfighter-V4S-Gr-Model-Blocks-630x390.png",
       title: "SUPER NAKED ",
+      link: "/HyperNaked"
     },
   ];
 

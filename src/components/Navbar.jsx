@@ -114,7 +114,7 @@ function Navbar() {
           <Logo>LOGO.</Logo>
         </Center>
         <Right>
-        <MenuItem><NavLink to="/products">Products</NavLink></MenuItem>
+        <MenuItem><NavLink to="/allProducts">Products</NavLink></MenuItem>
         <MenuItem>
           <NavLink to="/Home">Home</NavLink>
         </MenuItem>

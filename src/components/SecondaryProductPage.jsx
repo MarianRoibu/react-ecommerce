@@ -14,13 +14,16 @@ const Container = styled.div`
 `;
 
 const Products = () => {
+  const existingProducts = JSON.parse(localStorage.getItem('products')) || { SecondaryProducts: [] };
+  const allProducts = [...existingProducts.SecondaryProducts, ...db.SecondaryProducts];
+
   return (
     <Link to="/Producto">
-    <Container>
-    {db.SecondaryProducts.map((item) => (
-  <Product item={item} key={item.id} />
-))}
-    </Container>
+      <Container>
+        {allProducts.map((item) => (
+          <Product item={item} key={item.id} />
+        ))}
+      </Container>
     </Link>
   );
 };

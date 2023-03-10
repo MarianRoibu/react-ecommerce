@@ -1,5 +1,5 @@
 {
-    "SecondaryProducts": [
+  "SecondaryProducts": [
         {
           "id": 1,
           "name": "Product 1",
@@ -13,7 +13,8 @@
             "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
       
           ],
-          "link": "/products/1"
+          "link": "/products/1",
+          "category": "category_name"
           },
           {
             "id": 2,
@@ -28,7 +29,8 @@
               "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
       
             ],
-            "link": "/products/2"
+            "link": "/products/2",
+            "category": "category_name"
           },
           {
             "id": 3,
@@ -43,7 +45,8 @@
               "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
       
             ],
-            "link": "/products/3"
+            "link": "/products/3",
+            "category": "category_name"
           },
           {
             "id": 4,
@@ -58,7 +61,8 @@
               "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
       
             ],
-            "link": "/products/4"
+            "link": "/products/4",
+            "category": "category_name"
           },
           {
             "id": 5,
@@ -73,7 +77,8 @@
               "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
       
             ],
-            "link": "/products/5"
+            "link": "/products/5",
+            "category": "category_name"
           },
           {
             "id": 6,
@@ -88,7 +93,8 @@
               "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
       
             ],
-            "link": "/products/6"
+            "link": "/products/6",
+            "category": "category_name"
           },
           {
             "id": 8,
@@ -103,8 +109,8 @@
               "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
       
             ],
-            "link": "/products/8"
+            "link": "/products/8",
+            "category": "category_name"
           }
     ]
   }
-  

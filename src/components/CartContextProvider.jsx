@@ -1,4 +1,6 @@
 import React, { useState, createContext } from 'react';
+import categories from '../new-db.json';
+
 
 export const CartContext = createContext();
 
@@ -40,6 +42,39 @@ const CartContextProvider = ({ children }) => {
     setCart(updatedCart);
   };
 
+  const getCategory = (productId) => {
+    const category = categories.categories.find(cat =>
+      cat.products.some(p => p.id === productId)
+    );
+    return category ? category.slug : null;
+  };
+  
+  const getSameCategoryProducts = (productId) => {
+    const category = getCategory(productId);
+    const products = categories.categories
+      .find(cat => cat.slug === category)
+      .products.filter(p => p.id !== productId);
+    return products;
+  };
+  
+  const getSimilarPriceProducts = () => {
+    const avgPrice = cart.reduce((sum, item) => sum + item.price, 0) / cart.length;
+    const products = categories.categories
+      .flatMap(cat => cat.products)
+      .filter(p => Math.abs(p.price - avgPrice) < 10 && !cart.some(item => item.id === p.id));
+    return products;
+  };
+
+  const getRecommendedProducts = () => {
+    if (cart.length === 0) {
+      return [];
+    }
+    const productId = cart[cart.length - 1].id;
+    const sameCategoryProducts = getSameCategoryProducts(productId);
+    const similarPriceProducts = getSimilarPriceProducts();
+    return sameCategoryProducts.concat(similarPriceProducts);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -49,6 +84,7 @@ const CartContextProvider = ({ children }) => {
         clearCart,
         increaseQuantity,
         decreaseQuantity,
+        getRecommendedProducts,
       }}
     >
       {children}

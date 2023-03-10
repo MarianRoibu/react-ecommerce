@@ -5,6 +5,7 @@ import App from './App';
 import CartContextProvider from './components/CartContextProvider';
 import store from './components/store';
 import { Provider } from 'react-redux';
+import WishlistContextProvider from './components/WhislistContext';
 
 const Root = () => {
     return(

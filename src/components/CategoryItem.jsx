@@ -49,7 +49,9 @@ const CategoryItem = ({ item }) => {
       <Image src={item.img} />
       <Info>
         <Title>{item.title}</Title>
-        <Button> <NavLink to="/allProducts"> SHOP NOW </NavLink></Button>
+        <Button>
+        <NavLink to={item.link}>SHOP NOW</NavLink>
+        </Button>
       </Info>
     </Container>
   );
