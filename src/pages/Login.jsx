@@ -82,24 +82,21 @@ function Login() {
   const [error, setError] = useState(null);
   const history = useNavigate();
   const users = [
-    { username: 'admin', password: 'adminpass' },
+    { username: 'user1', password: 'password1' },
     { username: 'user2', password: 'password2' },
     { username: 'user3', password: 'password3' },
   ];
-  const { setLoggedIn } = useContext(AuthContext);
+  
   // Save user data to local storage
   localStorage.setItem('users', JSON.stringify(users));
 
   const handleLogin = () => {
     const storedUsers = JSON.parse(localStorage.getItem('users'));
-  
+
     const user = storedUsers.find(u => u.username === username && u.password === password);
-  
+
     if (user) {
-      const isAdmin = user.username === 'admin'; // Check if the user is an admin
-      const currentUser = { ...user, isAdmin }; // Add the admin status to the currentUser object
-      localStorage.setItem('currentUser', JSON.stringify(currentUser));
-      setLoggedIn(true);
+      localStorage.setItem('currentUser', JSON.stringify(user));
       history('/Home');
     } else {
       setError('Invalid username or password');
