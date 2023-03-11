@@ -20,8 +20,8 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
-  height: 90vh;
+  width: 20rem;
+  height: 9vh;
   object-fit: cover;
   ${mobile({ height: "40vh" })}
 `;
@@ -99,9 +99,22 @@ const Button = styled.button`
       background-color: #f8f4f4;
   }
 `;
-const Product = () => {
-  const [cartItems, setCartItems] = useState(0);
-  const { state: { product } } = useLocation();
+const Product = ({ product, cartItems, setCartItems }) => {
+  const [amount, setAmount] = useState(1);
+
+  const addToCart = () => {
+    setCartItems(cartItems + amount);
+  };
+
+  const decreaseAmount = () => {
+    if (amount > 1) {
+      setAmount(amount - 1);
+    }
+  };
+
+  const increaseAmount = () => {
+    setAmount(amount + 1);
+  };
 
   return (
     <Container>
@@ -116,11 +129,11 @@ const Product = () => {
           <Price>{product.price}</Price>
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove onClick={decreaseAmount} />
+              <Amount>{amount}</Amount>
+              <Add onClick={increaseAmount} />
             </AmountContainer>
-            <Button onClick={() => setCartItems(cartItems + 1)}>ADD TO CART</Button>
+            <Button onClick={addToCart}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

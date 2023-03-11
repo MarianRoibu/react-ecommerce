@@ -252,6 +252,115 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CartContext } from '../components/CartContextProvider'; 
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+`;
+
+const Title = styled.h1`
+  font-size: 3rem;
+  margin-bottom: 20px;
+`;
+
+const CartItem = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+const Image = styled.img`
+  width: 10rem;
+  height: 10rem;
+  margin-right: 20px;
+  object-fit: contain;
+`;
+
+const ItemInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ItemTitle = styled.p`
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+`;
+
+const ItemPrice = styled.p`
+  font-size: 1rem;
+`;
+
+const ItemQuantity = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+`;
+
+const QuantityButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 0 5px;
+`;
+
+const TotalPrice = styled.p`
+  font-size: 1.5rem;
+  margin-top: 20px;
+
+`;
+
+const CheckoutButton = styled.button`
+
+  background-color: #ff9900;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #fff;
+    color: #ff9900;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+const ClearCartButton = styled.button`
+  background-color: #dd0a35;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #fff;
+    color: #dd0a35;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+const CheckoutContainer = styled.div`
+  position: relative;
+  bottom: -20rem;
+  left: 70rem;
+  width: 100%;
+
+  
+
+
+`;
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart, increaseQuantity, decreaseQuantity } = useContext(CartContext);
@@ -263,31 +372,37 @@ const Cart = () => {
   }
 
   return (
-    <div>
-      <h1>Cart</h1>
+    <Container>
+      <Title>Cart</Title>
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <>
           {cart.map((item) => (
-            <div key={item.id}>
-              <img src={item.image} alt={item.title} style={{ width: '50px', height: '50px' }} />
-              <p>{item.title}</p>
-              <p>${item.price}</p>
+            <CartItem key={item.id}>
+              <Image src={item.image} alt={item.title} />
+              <ItemInfo>
+                <ItemTitle>{item.title}</ItemTitle>
+                <ItemPrice>${item.price}</ItemPrice>
+              </ItemInfo>
+              <QuantityButton onClick={() => decreaseQuantity(item.id)}>-</QuantityButton>
+              <div>{item.quantity}</div>
+              <QuantityButton onClick={() => increaseQuantity(item.id)}>+</QuantityButton>
               <button onClick={() => removeFromCart(item.id)}>Remove</button>
-              <button onClick={() => increaseQuantity(item.id)}>+</button>
-              <button>{item.quantity}</button>
-              <button onClick={() => decreaseQuantity(item.id)}>-</button>
-            </div>
+            </CartItem>
           ))}
+          <CheckoutContainer>
+          <TotalPrice>Total: ${calculateTotalPrice()}</TotalPrice>
           <div>
-            <p>Total: ${calculateTotalPrice()}</p>
-            <button onClick={clearCart}>Clear cart</button>
-            <button> <NavLink to="/Checkout"> Checkout  </NavLink></button>
+            <ClearCartButton onClick={clearCart}>Clear cart</ClearCartButton>
+            <NavLink to="/Checkout">
+              <CheckoutButton>Checkout</CheckoutButton>
+            </NavLink>
           </div>
+          </CheckoutContainer>
         </>
       )}
-    </div>
+    </Container>
   );
 };
 

@@ -11,10 +11,13 @@ import {
   import { mobile } from "../responsive";
   
   const Container = styled.div`
-    display: flex;
-    background: #393e46; 
-    ${mobile({ flexDirection: "column" })}
-  `;
+  display: flex;
+  background: #393e46;
+  ${mobile({ flexDirection: "column" })}
+  position: relative;
+  bottom: 0;
+`;
+
   
   const Left = styled.div`
     color: white;

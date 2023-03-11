@@ -16,12 +16,12 @@ const Home = () => {
 
   return (
     <div>
-       <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} /> 
+       {/* <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />  */}
       <Slider />
       <Categories />
       <Products />
       <Newsletter />
-      <Footer />
+      
     </div>
   );
 };

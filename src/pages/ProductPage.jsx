@@ -1,10 +1,21 @@
 import { useState } from "react";
 import {useHistory, useParams } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { popularProducts as products } from "../data";
 import { useContext } from 'react';
 import { CartContext } from "../components/CartContextProvider"; 
+import Color from "../components/Color";
+import Navbar from "../components/Navbar";
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +32,7 @@ const Wrapper = styled.div`
 
 const ImageContainer = styled.div`
   flex: 1;
+  animation: ${fadeIn} 1s;
 `;
 
 const ImageList = styled.div`
@@ -29,20 +41,31 @@ const ImageList = styled.div`
 `;
 
 const Image = styled.img`
-  width: 500px;
-  height: 500px;
-  object-fit: cover;
+  width: 20rem;
+  height: 10rem;
+  object-fit: contain;
   margin-right: 10px;
   border-radius: 5px;
   cursor: pointer;
   border: ${({ active }) => (active ? "2px solid #f09020" : "none")};
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const MainImage = styled.img`
-  height: 50%;
+  height: 70%;
   width: 60%;
-  object-fit: cover;
-  margin-right: 100px;
+  object-fit: contain;
+  margin-left: 20rem;
+  margin-right: 10rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -98,104 +121,114 @@ const Remove = styled.div`
   margin-right: 10px;
 `;
 
-const Add = styled(Remove)`
-  margin-right: 0;
+const Size = styled.span`
+  margin-right: 10px;
+  cursor: pointer;
 `;
-
-
 
 const AddContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 20px;
+  margin: 20px 0;
 `;
 
 const AmountContainer = styled.div`
   display: flex;
   align-items: center;
-  font-weight: 700;
-`;
-
-const Amount = styled.span`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid #f09020;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 5px;
+  margin-right: 20px;
 `;
 
 const Button = styled.button`
-  padding: 15px;
-  border: 2px solid #f09020;
-  background-color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f09020;
+  color: #fff;
   cursor: pointer;
-  font-weight: 500;
+  transition: all 0.3s ease;
 
   &:hover {
-    background-color: #f09020;
-    color: white;
+    background-color: #e08010;
   }
 `;
 
+const Amount = styled.span`
+  font-size: 20px;
+  font-weight: 200;
+  margin: 0 10px;
+`;
+
+const Add = styled(Remove)`
+  margin-right: 0;
+`;
+
 const ProductPage = () => {
-    const { addToCart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
-    const handleAddToCart = () => {
-      addToCart(product);
-      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  const [amount, setAmount] = useState(1);
+
+  const handleAddToCart = () => {
+    addToCart(product, amount);
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    for (let i = 0; i < amount; i++) {
       cartItems.push(product);
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    };
-
-    
-
-    const { id } = useParams();
-    const product = products.find((p) => p.id === parseInt(id));
-    const [currentImage, setCurrentImage] = useState(product.img);
-  
-    const handleImageClick = (image) => {
-      setCurrentImage(image);
-    };
-  
-    return (
-      <Container>
-        <Wrapper>
-          <ImageContainer>
-            <MainImage src={currentImage} />
-            <ImageList>
-  {product.images.map((image) => (
-    <Image
-      key={image}
-      src={image}
-      alt={product.title}
-      active={currentImage === image}
-      onClick={() => handleImageClick(image)}
-    />
-  ))}
-</ImageList>
-          </ImageContainer>
-          <InfoContainer>
-            <Title>{product.title}</Title>
-            <Desc>{product.description}</Desc>
-            <Price>${product.price}</Price>
-            <AddContainer>
-              <AmountContainer>
-                <Remove />
-                <Amount>1</Amount>
-                <Add />
-              </AmountContainer>
-              <Button onClick={handleAddToCart}>Add to Cart</Button>
-            </AddContainer>
-          </InfoContainer>
-        </Wrapper>
-      </Container>
-    );
+    }
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
   };
-  
+
+  const handleRemove = () => {
+    if (amount > 1) {
+      setAmount(amount - 1);
+    }
+  };
+
+  const handleAdd = () => {
+    setAmount(amount + 1);
+  };
+
+  const { id } = useParams();
+  const product = products.find((p) => p.id === parseInt(id));
+  const [currentImage, setCurrentImage] = useState(product.img);
+
+  const handleImageClick = (image) => {
+    setCurrentImage(image);
+  };
+
+  return (
+    
+    <Container>
+      <Wrapper>
+        <ImageContainer>
+          <MainImage src={currentImage} />
+          <ImageList>
+            {product.images.map((image) => (
+              <Image
+                key={image}
+                src={image}
+                alt={product.title}
+                active={currentImage === image}
+                onClick={() => handleImageClick(image)}
+              />
+            ))}
+          </ImageList>
+        </ImageContainer>
+        <InfoContainer>
+          <Title>{product.title}</Title>
+          <Desc>{product.description}</Desc>
+          <Price>${product.price}</Price>
+
+          <AddContainer>
+            <AmountContainer>
+              <Button onClick={handleRemove}>-</Button>
+              <Amount>{amount}</Amount>
+              <Button onClick={handleAdd}>+</Button>
+            </AmountContainer>
+            <Button onClick={handleAddToCart}>Add to Cart</Button>
+          </AddContainer>
+        </InfoContainer>
+      </Wrapper>
+    </Container>
+  );
+};
 
 export default ProductPage;

@@ -21,8 +21,15 @@ import Footer from './components/Footer';
 import Checkout from './pages/Checkout';
 
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+  
   return (
     <Router>
+     <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} /> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductList />} />
@@ -37,7 +44,7 @@ const App = () => {
         ))}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-
+   <Footer />
     </Router>
   );
 };

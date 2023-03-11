@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Navbar from "../components/Navbar";
 import Products from "../components/SecondaryProductPage";
 import Newsletter from "../components/Newsletter";
@@ -13,6 +13,11 @@ const Container = styled.div``;
 
 const Title = styled.h1`
   margin: 20px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: #e91e63;
+  }
 `;
 
 const FilterContainer = styled.div`
@@ -40,13 +45,13 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const AllProducts = () => {
-  // const { loggedIn } = useContext(AuthContext);
+
 
 
 
   return (
     <Container>
-      <Navbar />
+     
       <Title>Exhaust systems</Title>
       <FilterContainer>
         <Filter>
