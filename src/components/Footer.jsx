@@ -15,7 +15,7 @@ import {
   background: #393e46;
   ${mobile({ flexDirection: "column" })}
   position: relative;
-  bottom: 0;
+  
 `;
 
   

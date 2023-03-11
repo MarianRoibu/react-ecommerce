@@ -16,7 +16,7 @@ const Product = styled.div`
   height: 20rem;
   margin-bottom: 5rem;
   margin-top: 5rem;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+ 
   border-radius: 4px;
   overflow: hidden;
   position: relative;

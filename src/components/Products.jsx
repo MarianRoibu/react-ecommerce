@@ -15,13 +15,14 @@ const Container = styled.div`
 
 const Products = () => {
   return (
+    <NavLink to="/allProducts">Popular Products
     <Link to="/Producto">
     <Container>
       {popularProducts.map((item) => (
         <Product item={item} key={item.id} />
       ))}
     </Container>
-    </Link>
+    </Link></NavLink>
   );
 };
 
