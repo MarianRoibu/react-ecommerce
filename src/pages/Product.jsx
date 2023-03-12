@@ -5,7 +5,9 @@ import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Container = styled.div``;
 
@@ -45,23 +47,6 @@ const Price = styled.span`
   font-size: 40px;
 `;
 
-const FilterContainer = styled.div`
-  width: 50%;
-  margin: 30px 0px;
-  display: flex;
-  justify-content: space-between;
-  ${mobile({ width: "100%" })}
-`;
-
-const Filter = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const FilterTitle = styled.span`
-  font-size: 20px;
-  font-weight: 200;
-`;
 
 const AddContainer = styled.div`
   width: 50%;
@@ -103,7 +88,16 @@ const Product = ({ product, cartItems, setCartItems }) => {
   const [amount, setAmount] = useState(1);
 
   const addToCart = () => {
+  
     setCartItems(cartItems + amount);
+    toast.success(`product has been added to your cart.`, {
+      position: toast.POSITION.TOP_LEFT,
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
   };
 
   const decreaseAmount = () => {
@@ -117,6 +111,8 @@ const Product = ({ product, cartItems, setCartItems }) => {
   };
 
   return (
+    <>
+    <ToastContainer />
     <Container>
       <Navbar cartItems={cartItems} />
       <Wrapper>
@@ -140,6 +136,7 @@ const Product = ({ product, cartItems, setCartItems }) => {
       <Newsletter />
       <Footer />
     </Container>
+    </>
   );
 };
 

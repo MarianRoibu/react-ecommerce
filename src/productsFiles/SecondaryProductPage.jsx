@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import db from "../db.json";
-import Product from "./Product";
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
-  // import App from '../App'
-  import Producto from "../pages/Product";
-  import { useState } from "react";
+import Product from "../components/Product";
+
   
   const ProductsContainer = styled.div`
     display: flex;

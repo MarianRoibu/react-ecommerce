@@ -1,13 +1,10 @@
 import styled, { keyframes } from "styled-components";
-import Navbar from "../components/Navbar";
-import Products from "../components/SecondaryProductPage";
+import Products from "../productsFiles/SecondaryProductPage";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import AddProductForm from "./AddProductForm";
-import Product from "./Product";
-import { AuthContext } from "../components/LoginLogic";
-import { useContext } from "react";
+
 
 const Container = styled.div`
   animation: fadeIn 1s ease-in;

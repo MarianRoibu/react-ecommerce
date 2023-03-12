@@ -30,27 +30,38 @@ const Info = styled.div`
 `;
 
 const Title = styled.h1`
-    color:white;
-    margin-bottom: 20px;
+    color:black;
+    margin-bottom: 10rem;
+`;
+const Button = styled.button`
+  padding: 10px;
+  font-size: 20px;
+  background: linear-gradient(45deg, white 50%, gray 50%);
+  background-size: 200% 200%;
+  background-position: top left;
+  transition: background-position 0.5s;
+  cursor: pointer;
+  
+  &:hover {
+    background-position: bottom right;
+  }
 `;
 
-const Button = styled.button`
-    border:none;
-    padding: 10px;
-    background-color: white;
-    color:gray;
-    cursor: pointer;
-    font-weight: 600;
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: black;
 `;
 
 const CategoryItem = ({ item }) => {
   return (
     <Container>
+      
       <Image src={item.img} />
+      
       <Info>
         <Title>{item.title}</Title>
         <Button>
-        <NavLink to={item.link}>SHOP NOW</NavLink>
+        <StyledNavLink to={item.link}>SHOP NOW</StyledNavLink>
         </Button>
       </Info>
     </Container>

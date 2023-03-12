@@ -4,8 +4,6 @@ import styled, { keyframes } from "styled-components";
 import { popularProducts as products } from "../data";
 import { useContext } from 'react';
 import { CartContext } from "../components/CartContextProvider"; 
-import Color from "../components/Color";
-import Navbar from "../components/Navbar";
 
 const fadeIn = keyframes`
   from {
@@ -81,29 +79,13 @@ const Title = styled.h1`
   font-weight: 500;
 `;
 
-const Description = styled.p`
-  margin: 20px 0;
-`;
+
 
 const Price = styled.span`
   font-weight: 200;
   font-size: 40px;
 `;
 
-const FilterContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 20px 0;
-`;
-
-const Filter = styled.div`
-  margin: 0 10px;
-`;
-
-const FilterTitle = styled.span`
-  font-size: 20px;
-  font-weight: 200;
-`;
 
 const Desc = styled.p`
   margin: 20px 0;
@@ -158,9 +140,6 @@ const Amount = styled.span`
   margin: 0 10px;
 `;
 
-const Add = styled(Remove)`
-  margin-right: 0;
-`;
 
 const ProductPage = () => {
   const { addToCart } = useContext(CartContext);

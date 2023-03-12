@@ -1,18 +1,19 @@
 import { Badge } from "@material-ui/core";
-import { BrowserRouter, Routes, Route, Link, NavLink, useNavigate } from "react-router-dom";
+import {  Link, NavLink, useNavigate } from "react-router-dom";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-import React, { useState, useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import CartUser from '../pages/CartUser';
-import { AuthContext } from "./LoginLogic";
-import LoginButton from "./LoginButton";
-import { useSelector, useDispatch } from 'react-redux';
 
 
+
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: black;
+`;
 
 const Container = styled.div`
-  background-color: #393e46;
+  background-color: #ececec;
   height: 60px;
   ${mobile({ height: "50px" })}
 `;
@@ -57,6 +58,20 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   ${mobile({ fontSize: "24px" })}
 `;
 
@@ -72,6 +87,23 @@ const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
@@ -83,9 +115,7 @@ const CartIconLink = styled.a`
   cursor: pointer;
 `;
 
-const Button = styled.button`
 
-`
 
 
 
@@ -114,9 +144,9 @@ function Navbar() {
           <Logo>LOGO.</Logo>
         </Center>
         <Right>
-        <MenuItem><NavLink to="/allProducts">Products</NavLink></MenuItem>
+        <MenuItem><StyledNavLink to="/allProducts">Products</StyledNavLink></MenuItem>
         <MenuItem>
-          <NavLink to="/Home">Home</NavLink>
+          <StyledNavLink to="/Home">Home</StyledNavLink>
         </MenuItem>
         {currentUser ? (
           <MenuItem>
@@ -124,7 +154,7 @@ function Navbar() {
           </MenuItem>
         ) : (
           <MenuItem>
-            <NavLink to="/login">Login</NavLink>
+            <StyledNavLink to="/login">Login</StyledNavLink>
           </MenuItem>
         )}
 

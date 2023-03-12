@@ -1,5 +1,6 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { sliderItems } from "../data";
 import { mobile } from "../responsive";
@@ -75,8 +76,20 @@ const Desc = styled.p`
 const Button = styled.button`
   padding: 10px;
   font-size: 20px;
-  background-color: transparent;
+  background: linear-gradient(45deg, transparent 50%, #222831 50%);
+  background-size: 200% 200%;
+  background-position: top left;
+  transition: background-position 0.5s;
   cursor: pointer;
+  
+  &:hover {
+    background-position: bottom right;
+  }
+`;
+
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: black;
 `;
 
 const Slider = () => {
@@ -114,7 +127,7 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
-              <Button>SHOW NOW</Button>
+              <Button> <StyledNavLink to="SliderPage"> SHOW NOW </StyledNavLink> </Button>
             </InfoContainer>
           </Slide>
         ))}

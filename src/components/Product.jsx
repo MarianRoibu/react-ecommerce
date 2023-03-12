@@ -6,6 +6,8 @@ import {
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+
+
 const Container = styled.div`
   flex: 1;
   margin: 5px;
@@ -16,7 +18,8 @@ const Container = styled.div`
   justify-content: center;
   background-color: #f5fbfd;
   position: relative;
-  overflow: hidden;
+  scroll-snap-align: center;
+  animation: slide-in-right 1s ease-out;
 
   &:hover .image {
     transform: scale(1.1);
@@ -26,7 +29,20 @@ const Container = styled.div`
     opacity: 1;
     transform: translateY(0);
   }
+  
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
 `;
+
+
 
 const Circle = styled.div`
   width: 200px;
@@ -111,14 +127,21 @@ const Info = styled.div`
   }
 `;
 
+
 const Product = ({ item }) => {
+  // Retrieve data from local storage
+  const storedProducts = JSON.parse(localStorage.getItem("products"));
+  
+  // Add the retrieved data to the current item
+  const updatedItem = { ...item, ...storedProducts[item.id] };
+  
   return (
     <Link to={`/products/${item.id}`}>
       <Container>
         <Circle />
-        <Image className="image" src={item.img} />
+        <Image className="image" src={updatedItem.img} />
         <Info className="info">
-          <h2>{item.name}</h2>
+          <h2>{updatedItem.name}</h2>
           <div className="icons">
             <div className="icon">
               <SearchOutlined />
@@ -133,9 +156,8 @@ const Product = ({ item }) => {
           <button className="button">Show More</button>
         </Info>
       </Container>
-  </Link>
-);
+    </Link>
+  );
+};
 
-  };
-  
-  export default Product;
+export default Product;

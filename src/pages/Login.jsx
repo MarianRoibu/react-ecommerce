@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import {mobile} from "../responsive";
 import React, { useState, useContext, useEffect } from "react";
-import { AuthContext } from "../components/LoginLogic";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import { connect } from 'react-redux';
+
 
 
 
@@ -57,15 +55,7 @@ const Button = styled.button`
   margin-bottom: 10px;
 `;
 
-const ButtonLogOut = styled.button`
-  width: 40%;
-  border: none;
-  padding: 15px 20px;
-  background-color: teal;
-  color: white;
-  cursor: pointer;
-  margin-bottom: 10px;
-`;
+
 
 const Link = styled.a`
   margin: 5px 0px;
@@ -104,19 +94,28 @@ function Login() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <div>
-        <label>Username:</label>
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </div>
-      <button onClick={handleLogin}>Login</button>
-      {error && <div>{error}</div>}
-    </div>
+    <Container>
+    <Wrapper>
+      <Title>Login</Title>
+      <Form>
+        <Input 
+          type="text" 
+          placeholder="Username" 
+          value={username} 
+          onChange={e => setUsername(e.target.value)} 
+        />
+        <Input 
+          type="password" 
+          placeholder="Password" 
+          value={password} 
+          onChange={e => setPassword(e.target.value)} 
+        />
+        <Button onClick={handleLogin}>Login</Button>
+        {error && <div>{error}</div>}
+      </Form>
+      <Link>Forgot your password?</Link>
+    </Wrapper>
+  </Container>
   );
 }
 

@@ -4,17 +4,23 @@ import categories from '../new-db.json';
 
 export const CartContext = createContext();
 
+
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  
 
   const addToCart = (product) => {
+
     const cartItem = {
       id: product.id,
       title: product.title,
       image: product.img,
       price: product.price,
       quantity: 1,
+      
     };
+
+  
     setCart([...cart, cartItem]);
   };
 

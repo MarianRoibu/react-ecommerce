@@ -20,7 +20,7 @@
             "category": "category_name"
             },
             {
-              "id": 2,
+              "id": 1,
               "name": "Product 2",
               "price": 10,
               "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -36,7 +36,7 @@
               "category": "category_name"
             },
             {
-              "id": 3,
+              "id": 2,
               "name": "Product 3",
               "price": 10,
               "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -68,7 +68,7 @@
                 "category": "category_name"
               },
               {
-                "id": 5,
+                "id": 3,
                 "name": "Product 5",
                 "price": 10,
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -84,7 +84,7 @@
                 "category": "category_name"
               },
               {
-                "id": 6,
+                "id": 8,
                 "name": "Product 6",
                 "price": 10,
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -100,7 +100,7 @@
                 "category": "category_name"
               },
               {
-                "id": 7,
+                "id": 9,
                 "name": "Product 7",
                 "price": 10,
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -116,7 +116,7 @@
                 "category": "category_name"
               },
               {
-                "id": 8,
+                "id": 13,
                 "name": "Product 8",
                 "price": 10,
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -132,7 +132,7 @@
                 "category": "category_name"
               },
               {
-                "id": 9,
+                "id": 4,
                 "name": "Product 9",
                 "price": 10,
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -156,18 +156,149 @@
         "title": "Naked Bikes",
         "slug": "naked-bikes",
         "products": [
-            {
-                "id": 3,
-                "name": "Product 3",
-                "description": "Product 3 description",
-                "image": "product3.jpg"
+          {
+            "id": 11,
+            "name": "Product 10",
+            "price": 10,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/21147/e00febd3-a67b-4f95-b857-e36415e833f7.png",
+            "images": [
+              "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20152/96714255-1f4b-4c28-b8be-5f296af79768.png",
+              "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20152/bf97a45a-e1b8-4ed7-a39f-b49e2fdb2a3f.png",
+              "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20152/8b6c123a-8f41-44c2-9d60-9c8727b782a9.png",
+              "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+        
+            ],
+            "link2": "/products/10",
+            "category": "category_name"
             },
             {
-                "id": 4,
-                "name": "Product 4",
-                "description": "Product 4 description",
-                "image": "product4.jpg"
-            }
+              "id": 7,
+              "name": "Product 11",
+              "price": 10,
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/21569/464413fb-bd10-49d5-98a7-7894f328c3a0.png",
+              "images": [
+                "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+        
+              ],
+              "link2": "/products/11",
+              "category": "category_name"
+            },
+            {
+              "id": 12,
+              "name": "Product 12",
+              "price": 10,
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20810/4262a1ba-a82f-4f48-922b-9aafe0795bfc.png",
+              "images": [
+                "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+        
+              ],
+              "link2": "/products/12",
+              "category": "category_name"
+            },
+            {
+                "id": 6,
+                "name": "Product 13",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/21397/cd685f02-c506-4694-a709-f6dd2e062130.png",
+                "images": [
+                  "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/13",
+                "category": "category_name"
+              },
+              {
+                "id": 14,
+                "name": "Product 14",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://www.mvagusta.com/images/main/rush/1000/main-m.png",
+                "images": [
+                  "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/14",
+                "category": "category_name"
+              },
+              {
+                "id": 12,
+                "name": "Product 15",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/21574/bb398e29-7ad1-4a9b-990c-56e777d715d2.png",
+                "images": [
+                  "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/15",
+                "category": "category_name"
+              },
+              {
+                "id": 10,
+                "name": "Product 16",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20017/9c418ae8-58a2-48cb-b1e7-10119df7460a.png",
+                "images": [
+                  "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/16",
+                "category": "category_name"
+              },
+              {
+                "id": 17,
+                "name": "Product 17",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/243/67f79b349b89432093be65faa54aac70.png",
+                "images": [
+                  "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/17",
+                "category": "category_name"
+              },
+              {
+                "id": 18,
+                "name": "Product 18",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://www.mvagusta.com/images/main/brutale/1000-nurburgring/main-m.png",
+                "images": [
+        
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/18",
+                "category": "category_name"
+              }
         ],
         "link": "/NakedBikesPage"
     },
@@ -176,18 +307,149 @@
         "title": "Hyper Naked",
         "slug": "hyper-naked",
         "products": [
-            {
-                "id": 5,
-                "name": "Product 5",
-                "description": "Product 5 description",
-                "image": "product5.jpg"
+          {
+            "id": 19,
+            "name": "Product 19",
+            "price": 10,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20259/49a9c822-c90b-4039-95cf-a16cbc8d0b5e.png",
+            "images": [
+              "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20152/96714255-1f4b-4c28-b8be-5f296af79768.png",
+              "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20152/bf97a45a-e1b8-4ed7-a39f-b49e2fdb2a3f.png",
+              "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20152/8b6c123a-8f41-44c2-9d60-9c8727b782a9.png",
+              "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+        
+            ],
+            "link2": "/products/19",
+            "category": "category_name"
             },
             {
-                "id": 6,
-                "name": "Product 6",
-                "description": "Product 6 description",
-                "image": "product6.jpg"
-            }
+              "id": 20,
+              "name": "Product 20",
+              "price": 10,
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/21495/5a8425fe-ad2f-421e-8be7-f12e16ba787f.png",
+              "images": [
+                "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+        
+              ],
+              "link2": "/products/20",
+              "category": "category_name"
+            },
+            {
+              "id": 21,
+              "name": "Product 21",
+              "price": 10,
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/17080/d2e2752387474b62aadd328698be0e15.png",
+              "images": [
+                "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+        
+              ],
+              "link2": "/products/21",
+              "category": "category_name"
+            },
+            {
+                "id": 22,
+                "name": "Product 22",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/21153/1ea05b15-dba0-4e61-a5eb-7a18aa4d516f.png",
+                "images": [
+                  "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/22",
+                "category": "category_name"
+              },
+              {
+                "id": 23,
+                "name": "Product 23",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/990/29806a4af6894b72b6aedd9a833b0650.png",
+                "images": [
+                  "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/23",
+                "category": "category_name"
+              },
+              {
+                "id": 24,
+                "name": "Product 24",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20556/70d99922-e14c-4af2-8357-1b281baa4076.png",
+                "images": [
+                  "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/24",
+                "category": "category_name"
+              },
+              {
+                "id": 14,
+                "name": "Product 25",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20997/83915f81-8c63-4391-a246-289cf9934df3.png",
+                "images": [
+                  "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/25",
+                "category": "category_name"
+              },
+              {
+                "id": 26,
+                "name": "Product 26",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://www.mvagusta.com/images/main/lucky-explorer/9.5/main-m.png",
+                "images": [
+                  "https://shop.sc-project.com/Images/Products/Zoom/Completo_BMW_S1000RR_my2020_SC1R-350mm_3-4Posteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Lato.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/26",
+                "category": "category_name"
+              },
+              {
+                "id": 4,
+                "name": "Product 27",
+                "price": 10,
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                "img": "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/21602/b1818f4e-3b66-4c08-8f24-2fd791af19bb.png",
+                "images": [
+        
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_3-4Anteriore.jpg",
+                  "https://shop.sc-project.com/Images/Products/Zoom/Aprilia_RSV4-RR-1000_my2020_SC1R-Carbonio-Omologato_Retro.jpg"
+          
+                ],
+                "link2": "/products/27",
+                "category": "category_name"
+              }
         ],
         "link": "/HyperNaked"
     }
