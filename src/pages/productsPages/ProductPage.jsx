@@ -1,9 +1,12 @@
 import { useState } from "react";
-import {useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
-import { popularProducts as products } from "../data";
+import { popularProducts as products } from "../../data";
 import { useContext } from 'react';
-import { CartContext } from "../components/CartContextProvider"; 
+import { CartContext } from "../../components/CartContextProvider";
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const fadeIn = keyframes`
   from {
@@ -147,6 +150,15 @@ const ProductPage = () => {
   const [amount, setAmount] = useState(1);
 
   const handleAddToCart = () => {
+    toast.success(`product has been added to your cart.`, {
+      position: toast.POSITION.TOP_LEFT,
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+
     addToCart(product, amount);
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     for (let i = 0; i < amount; i++) {
@@ -174,7 +186,8 @@ const ProductPage = () => {
   };
 
   return (
-    
+    <>
+    <ToastContainer />
     <Container>
       <Wrapper>
         <ImageContainer>
@@ -207,6 +220,7 @@ const ProductPage = () => {
         </InfoContainer>
       </Wrapper>
     </Container>
+    </>
   );
 };
 

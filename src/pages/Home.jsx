@@ -1,8 +1,8 @@
 import React from "react";
-import Categories from "../components/Categories";
-import Newsletter from "../components/Newsletter";
-import Products from "../components/Products";
-import Slider from "../components/Slider";
+import Categories from "../components/ProductComponents/Categories";
+import Newsletter from "../components/ReusableStaticRenders/Newsletter";
+import Products from "../components/ProductComponents/Products";
+import Slider from "../components/ReusableStaticRenders/Slider";
 
 const Home = () => {
 

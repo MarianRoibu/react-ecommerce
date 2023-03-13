@@ -2,8 +2,8 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { sliderItems } from "../data";
-import { mobile } from "../responsive";
+import { sliderItems } from "../../data";
+import { mobile } from "../../responsive";
 
 const Container = styled.div`
   width: 100%;

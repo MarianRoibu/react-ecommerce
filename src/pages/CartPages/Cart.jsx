@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
-import { CartContext } from '../components/CartContextProvider'; 
+import { NavLink, useNavigate } from 'react-router-dom';
+import { CartContext } from '../../components/CartContextProvider'; 
 import styled from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -136,6 +136,11 @@ const Cart = () => {
     }, 0);
   }
 
+  function RedirectToLogin() {
+    const navigate = useNavigate();
+    navigate('/login');
+  }
+
   return (
     <>
     <ToastContainer />
@@ -163,7 +168,7 @@ const Cart = () => {
           <div>
             <ClearCartButton onClick={clearCart}>Clear cart</ClearCartButton>
             <NavLink to="/Checkout">
-              <CheckoutButton>Checkout</CheckoutButton>
+              <CheckoutButton onClick={RedirectToLogin}>Checkout</CheckoutButton>
             </NavLink>
           </div>
           </CheckoutContainer>

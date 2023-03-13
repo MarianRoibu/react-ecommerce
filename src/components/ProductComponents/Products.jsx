@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { popularProducts } from "../data";
-import Product from "./Product";
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
-  // import App from '../App'
-  import Producto from "../pages/Product";
+import { popularProducts } from "../../data";
+import Product from "../../pages/productsPages/Product";
+import { Link, NavLink } from "react-router-dom";
+
 
 const Container = styled.div`
     padding: 20px;

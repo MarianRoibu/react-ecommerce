@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { CartContext } from '../components/CartContextProvider';
+import { CartContext } from '../../components/CartContextProvider';
 import styled from 'styled-components';
 
 const CheckoutWrapper = styled.div`

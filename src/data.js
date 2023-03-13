@@ -5,21 +5,21 @@ export const sliderItems = [
       id: 1,
       img: "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/20133/d061c6ba-f530-46ab-8f4c-852a2b0d70e6.png",
       title: "NEW EXHAUST",
-      desc: "GET THE MOST OUT OF YOUR CAR! GET FLAT ¡10% OFF FOR NEW ARRIVALS.",
+      desc: "STAY TUNED FOR WHAT'S COMING: NEW AND IMPROVED DESIGN.",
       bg: "linear-gradient(to left, #BDBBBE 0%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);"
     },
     {
       id: 2,
       img: "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/15696/b5975adbd6f4479caeea13800f1474ec.png",
       title: "TITANIUM COLECTION",
-      desc: "GET THE MOST OUT OF YOUR CAR! GET FLAT 10% OFF FOR NEW ARRIVALS.",
+      desc: "STAY TUNED FOR WHAT'S COMING: NEW AND IMPROVED DESIGN.",
       bg: "linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%)",
     },
     {
       id: 3,
       img: "https://d1sfhav1wboke3.cloudfront.net/ImageServer/Apim2media/Images/17186/18a702c2630b457f80bc60d3ed7d9658.png",
       title: "CARBON FIBER",
-      desc: "GET THE MOST OUT OF YOUR CAR! GET FLAT 10% OFF FOR NEW ARRIVALS.",
+      desc: "STAY TUNED FOR WHAT'S COMING: NEW AND IMPROVED DESIGN.",
       bg: "linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%)"
     },
   ];

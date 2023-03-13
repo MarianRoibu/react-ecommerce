@@ -1,30 +1,24 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-
-import Navbar from "./components/Navbar";
+import Navbar from "./components/ReusableStaticRenders/Navbar";
 import { useState  } from "react";
-import AllProducts from "./pages/allProducts";
+import AllProducts from "./pages/productsPages/allProducts";
 import categoriesData from "./categories.json";
 import Home from "./pages/Home";
-import ProductList from "./pages/ProductList";
-import ProductPage from './pages/ProductPage';
+import ProductList from "./pages/productsPages/ProductList";
+import ProductPage from './pages/productsPages/ProductPage';
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import CartUser from "./pages/Cart";
+import CartUser from "./pages/CartPages/Cart";
 import Category from './components/Category';
-import Footer from './components/Footer';
-import Checkout from './pages/Checkout';
+import Footer from './components/ReusableStaticRenders/Footer';
+import Checkout from './pages/CartPages/Checkout';
 import SliderPage from './pages/SliderPageTest';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
-  
   return (
     <Router>
-     <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout} /> 
+     <Navbar /> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductList />} />

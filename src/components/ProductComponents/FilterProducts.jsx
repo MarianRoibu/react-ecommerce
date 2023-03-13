@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import db from "../db.json";
+import db from "../../db.json";
 import styled from "styled-components";
 
 const Container = styled.div`

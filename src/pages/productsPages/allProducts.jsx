@@ -1,9 +1,10 @@
 import styled, { keyframes } from "styled-components";
-import Products from "../productsFiles/SecondaryProductPage";
-import Newsletter from "../components/Newsletter";
-import Footer from "../components/Footer";
-import { mobile } from "../responsive";
+import SecondaryProducts from "../../components/ProductComponents/SecondaryProductPage";
+import Newsletter from "../../components/ReusableStaticRenders/Newsletter";
+import Footer from "../../components/ReusableStaticRenders/Footer";
+import { mobile } from "../../responsive";
 import AddProductForm from "./AddProductForm";
+
 
 
 const Container = styled.div`
@@ -96,7 +97,7 @@ const AllProducts = () => {
             
 
 
-      <Products />
+      <SecondaryProducts />
       <Newsletter />
       <Footer />
     </Container>

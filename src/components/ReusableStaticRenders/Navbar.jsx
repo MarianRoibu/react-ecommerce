@@ -3,7 +3,7 @@ import {  Link, NavLink, useNavigate } from "react-router-dom";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
-import { mobile } from "../responsive";
+import { mobile } from "../../responsive";
 
 
 
@@ -96,7 +96,7 @@ const MenuItem = styled.div`
     left: 0;
     width: 0%;
     height: 2px;
-    background-color: white;
+    background-color: black;
     transition: all 0.3s ease-in-out;
   }
 

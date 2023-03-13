@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import db from "../db.json";
-import Product from "../components/Product";
+import db from "../../db.json";
+import Product from "../../pages/productsPages/Product";
 
   
   const ProductsContainer = styled.div`
@@ -11,7 +11,7 @@ import Product from "../components/Product";
   `;
   
   
-  const Products = () => {
+  const SecondaryProducts = () => {
     const existingProducts = JSON.parse(localStorage.getItem("products")) || {
       SecondaryProducts: [],
     };
@@ -20,4 +20,4 @@ import Product from "../components/Product";
     return <ProductsContainer>{allProducts.map((item) => <Product item={item} key={item.id} />)}</ProductsContainer>;
   };
   
-  export default Products;
+  export default SecondaryProducts;

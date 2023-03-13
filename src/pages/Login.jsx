@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {mobile} from "../responsive";
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 
 
@@ -66,30 +67,29 @@ const Link = styled.a`
 
 
 
+
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const dispatch = useDispatch();
   const history = useNavigate();
-  const users = [
-    { username: 'user1', password: 'password1' },
-    { username: 'user2', password: 'password2' },
-    { username: 'user3', password: 'password3' },
-  ];
-  
-  // Save user data to local storage
-  localStorage.setItem('users', JSON.stringify(users));
 
   const handleLogin = () => {
-    const storedUsers = JSON.parse(localStorage.getItem('users'));
+    const users = [
+      { username: "user1", password: "password1" },
+      { username: "user2", password: "password2" },
+      { username: "user3", password: "password3" },
+    ];
 
-    const user = storedUsers.find(u => u.username === username && u.password === password);
+    const user = users.find((u) => u.username === username && u.password === password);
 
     if (user) {
-      localStorage.setItem('currentUser', JSON.stringify(user));
-      history('/Home');
+      dispatch({ type: "LOGIN" });
+      localStorage.setItem("currentUser", JSON.stringify(user));
+      history("/Home");
     } else {
-      setError('Invalid username or password');
+      setError("Invalid username or password");
     }
   };
 
