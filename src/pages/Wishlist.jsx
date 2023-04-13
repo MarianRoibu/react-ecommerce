@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import handleCheckboxChange from '../functions/handleCheckboxChange';
+import handleDelete from '../functions/handleDelete';
+import handleSubmit from '../functions/handleSubmint';
+import { Main, Form, Label, Input, TextArea, Select, Button, ButtonEdit, 
+  Filters, FiltersTitle, FilterContainer, FilterLabel, CheckboxInput, 
+  ListContainer, ListTitle, ListItem, ItemTitle, ItemDescription, ItemDetails, 
+  ItemCategory, ItemDate, ErrorText, LoadingText, ListFilters, ItemCheckbox, 
+  ItemDeleteButton, ButtonContainer}from '../style/whislistStyle';
+import Filter from '../components/filters';
+import WishesList from './WishesList';
+
+import axios from 'axios';
+import AddWishForm from './AddWishForm';
 
 function Wishlist() {
   const [items, setItems] = useState([]);
@@ -12,53 +25,51 @@ function Wishlist() {
   const [editPrice, setEditPrice] = useState("");
   const [sortByPrice, setSortByPrice] = useState("none");
 
-  const handleDelete = (id) => {
-    const updatedItems = items.filter((item) => item.id !== id);
 
-    localStorage.setItem('wishlist', JSON.stringify(updatedItems));
+
+  // const [wishes, setWishes] = useState([]);
+
+  // // fetch wishes data from API
+  // useEffect(() => {
+  //   axios.get('http://localhost:4000/wishes')
+  //     .then(res => {
+  //       setWishes(res.data);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }, []);
+
+  // // delete a wish
+  // const handleDelete = id => {
+  //   axios.delete(`http://localhost:4000/wishes/${id}`)
+  //     .then(res => {
+  //       setWishes(wishes.filter(wish => wish._id !== id));
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }
+
+
+
+
+  const handleDeleteItem = (id) => {
+    const updatedItems = handleDelete(items, id);
 
     setItems(updatedItems);
   };
 
-  const handleCheckboxChange = (id) => {
-    const updatedItems = items.map((item) => {
-      if (item.id === id) {
-        return {
-          ...item,
-          active: !item.active,
-        };
-      } else {
-        return item;
-      }
-    });
-
-    localStorage.setItem('wishlist', JSON.stringify(updatedItems));
+  const handleCheckboxChangeItem = (id) => {
+    const updatedItems = handleCheckboxChange(items, id);
 
     setItems(updatedItems);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const newItem = {
-      id: Date.now(),
-      name: event.target.name.value,
-      description: event.target.description.value,
-      price: parseFloat(event.target.price.value),
-      category: event.target.category.value,
-      active: true,
-    };
-
-    const data = JSON.parse(localStorage.getItem('wishlist')) || [];
-
-    const updatedItems = [...data, newItem];
-
-    localStorage.setItem('wishlist', JSON.stringify(updatedItems));
-
-    setItems(updatedItems);
-
-    event.target.reset();
+  const handleSubmitItem = (event) => {
+    handleSubmit(event, items, setItems);
   };
+
 
   const showCompletedItems = () => {
     setShowCompleted(true);
@@ -143,239 +154,10 @@ function Wishlist() {
   }, []);
 
 
-
-  const Main = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; 
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  width: 50%;
-
-  @media screen and (max-width: 768px) {
-    width: 80%;
-  }
-`;
-
-const Label = styled.label`
-  margin-bottom: 5px;
-  font-weight: bold;
-`;
-
-const Input = styled.input`
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
-  padding: 0.5rem;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-`;
-
-const TextArea = styled.textarea`
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
-  padding: 0.5rem;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-`;
-
-const Select = styled.select`
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
-  padding: 0.5rem;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-`;
-
-const Button = styled.button`
-  margin-bottom: 10px;
-  padding: 0.5rem 1rem;
-  background-color: #1abc9c;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-
-  &:hover {
-    background-color: #148f77;
-  }
-`;
-
-const ButtonEdit = styled.button`
-  margin-bottom: 10px;
-  padding: 0.5rem 1rem;
-  background-color: #fcff82;
-  color: #000;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-
-  &:hover {
-    background-color: #facf5a;
-  }
-`;
-
-const Filters = styled.div`
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  width: 50%;
-
-  @media screen and (max-width: 768px) {
-    width: 80%;
-  }
-`;
-
-const FiltersTitle = styled.h3`
-  margin-bottom: 1rem;
-  font-weight: bold;
-`;
-
-const FilterContainer = styled.div`
-  margin-bottom: 1rem;
-`;
-
-const FilterLabel = styled.label`
-  margin-right: 0.5rem;
-`;
-
-const CheckboxInput = styled.input`
-  margin-right: 0.5rem;
-`;
-
-const ListContainer = styled.div`
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  width: 50%;
-
-  @media screen and (max-width: 768px) {
-width: 80%;
-}
-`;
-
-const ListTitle = styled.h2 `margin-bottom: 1rem; font-weight: bold;;`
-
-const ListItem = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 1rem;
-background-color: #fff;
-border-radius: 5px;
-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-width: 100%;
-margin-bottom: 1rem;
-
-&:last-child {
-margin-bottom: 0;
-}
-`;
-
-const ItemTitle = styled.h3 `
-margin-bottom: 0.5rem;;`
-
-const ItemDescription = styled.p `
-margin-bottom: 0.5rem;;`
-
-const ItemDetails = styled.div `
-display: flex; 
-flex-direction: row; 
-justify-content: space-between; 
-width: 100%;;`
-
-const ItemCategory = styled.span `
-margin-right: 0.5rem; 
-font-weight: bold;;`
-
-const ItemDate = styled.span `
-font-size: 0.8rem; 
-color: #888;;`
-
-const ErrorText = styled.p `
-color: #ff0000; 
-font-weight: bold; 
-margin-top: 0.5rem;;`
-
-const LoadingText = styled.p `
-font-weight: bold; 
-margin-top: 0.5rem;;`
-
-
-const ListFilters = styled.div`
-margin-bottom: 10px;
-display: flex;
-align-items: center;
-`;
-
-const ItemCheckbox = styled.input`
-margin-right: 5px;
-`;
-
-const ItemDeleteButton = styled.button`
-      margin-right: 0.5rem;
-    padding: 0.5rem;
-    background-color: #f83e4b;
-    color: #fff;
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-
-    &:hover {
-      background-color: #be3144;
-    }
-
-`;
-
-
-const ButtonContainer = styled.div`
-  display: flex;
-  margin-top: 1rem;
-
-  button {
-    margin-right: 0.5rem;
-    padding: 0.5rem;
-    background-color: #1abc9c;
-    color: #fff;
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-
-    &:hover {
-      background-color: #148f77;
-    }
-  }
-`;
-
-
-
   return (
 <Main>
     <ListTitle>Lista de deseos</ListTitle>
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmitItem}>
       <Label htmlFor="name">Nombre:</Label>
       <Input type="text" id="name" name="name" required />
 
@@ -428,7 +210,7 @@ const ButtonContainer = styled.div`
       </FilterContainer>
     </Filters>
 
-
+{/* <Filter /> */}
 
 
     <ButtonContainer>
@@ -512,12 +294,17 @@ const ButtonContainer = styled.div`
               <ItemCheckbox
                 type="checkbox"
                 checked={!item.active}
-                onChange={() => handleCheckboxChange(item.id)}
+                onChange={() => handleCheckboxChangeItem(item.id)}
               />
-              <ItemDeleteButton onClick={() => handleDelete(item.id)}>Eliminar</ItemDeleteButton>
+              <ItemDeleteButton onClick={() => handleDeleteItem(item.id)}>Eliminar</ItemDeleteButton>
             </ListItem>
           ))}
       </ul>
+
+
+      {/* <WishesList wishes={wishes} onDelete={handleDelete}  /> */}
+      <WishesList />
+
     </ListContainer>
   </Main>
   );
